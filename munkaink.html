@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./images/logo-vuk.png" type="png">
+  <title>Veszprémi Útépítő Kft. - VUK</title>
+</head>
+
+<body>
+  <section id="navigation" class="gradient-background">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
+        <div class="container-fluid">
+        <a class="navbar-brand col-lg-3 me-0 nav-link d-flex align-items-center" aria-current="page"
+            href="./index.html">
+            <img class="fox" src="./images/logo-vuk.png" height="70">
+            <div class="ms-2">
+            <span>VUK<br /></span>
+            VESZPRÉMI ÚTÉPÍTŐ KFT.
+            </div>
+        </a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav d-none d-lg-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="./rolunk.html"><span class="meret">Rólunk</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="./munkaink.html"><span class="meret">Munkáink</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./csapatunk.html"><span class="meret">Csapatunk</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./kapcsolat.html"><span class="meret">Kapcsolat</span></a>
+              </li>
+            </ul>
+            <ul class="navbar-nav d-lg-none">
+              <li class="nav-item">
+                <a class="nav-link" href="./rolunk.html">Rólunk</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./munkaink.html">Munkáink</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./csapatunk.html">Csapatunk</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./kapcsolat.html">Kapcsolat</a>
+              </li>
+            </ul>
+          </div>
+        <button id="openMenu" class="navbar-toggler d-lg-none" type="button" aria-label="Toggle navigation">
+            ☰
+        </button>
+        </div>
+        <div id="mobileMenu" class="mobile-menu">
+            <button id="closeMenu" class="close-menu">✖</button>
+            <ul class="menu-list">
+                <li><a href="./rolunk.html">Rólunk</a></li>
+                <li><a href="./munkaink.html">Munkáink</a></li>
+                <li><a href="./csapatunk.html">Csapatunk</a></li>
+                <li><a href="./kapcsolat.html">Kapcsolat</a></li>
+                <li><a href="./impresszum.html">Impresszum</a></li>
+            </ul>
+        </div>
+    </nav>
+  </section>
+  <section id="munkaink">
+    <div class="container">
+      <div class="row gy-4"> <!-- gy-4 biztosítja a 20px távolságot a sorok között -->
+        <!-- Kártyák -->
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Balatonakali/Ez lett.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Balatonakali</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details1">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+          <!-- Details Card közvetlenül a kártya alatt -->
+          <div class="details-card collapse" id="details1">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Balatonakali/Ez volt.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Balatonakali/IMG_20240122_121837.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Balatonakali/IMG_20240124_083353.jpg" class="gallery-image" alt="Project Image 3">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+              <div class="details-text">
+                <h5>Parti sétány kialakítása</h5>
+                <p>A földes, sáros, iszapos területen a partra vezető sétány kialakítása, pihenőpadokkal, közvilágítással</p>
+                <p>Dátum: 2023.12 – 2024.04.</p>
+                <p>Helyszín: Balatonakali, Camping és Balaton utcai strand közötti szakaszon</p>
+                <p>Bekerülési költség: 23,9MFt + ÁFA</p>
+              </div>
+            </div>
+            <div class="details-card collapse" id="details2">
+              <div class="details-content">
+                <div class="image-container">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/Ez volt.jpg" class="gallery-image active"  alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/1.jpg" class="gallery-image" alt="Project 2 Image 2">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/2.jpg" class="gallery-image" alt="Project 2 Image 3">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/3.jpg"  class="gallery-image" alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/4.jpg"  class="gallery-image" alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/5.jpg"  class="gallery-image" alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/6.jpg"  class="gallery-image" alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/7.jpg"  class="gallery-image" alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/8.jpg"  class="gallery-image" alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/9.jpg"  class="gallery-image" alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/10.jpg" class="gallery-image" alt="Project 2 Image 1">
+                  <img src="./Képek/Képek/Ajka Szakképzési Centrum/11.jpg" class="gallery-image" alt="Project 2 Image 1">
+                  <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                  <div class="carousel-control next-image"><span>&#10095;</span></div>
+                </div>
+              </div>
+                <div class="details-text">
+                  <h5>Fejlesztő tornapálya kialakítása</h5>
+                  <p>	A meglévő aszfaltos sportpálya átépítése gumiburkolatú sportpályának valamint a 
+                    füves felület átalakítása erőnléti fejlesztő térnek</p>
+                  <p>Dátum: 2024.09-12.</p>
+                  <p>Helyszín: Ajka, Kandó Kálmán ltp 4.</p>
+                  <p>Bekerülési költség: 23,9MFt + ÁFA</p>
+                </div>
+              </div>
+              <div class="details-card collapse" id="details3">
+                <div class="details-content">
+                  <div class="image-container">
+                    <img src="./Képek/Képek/Balatonfűzfő/Orvosi rendelő/Ez volt.jpg" class="gallery-image active"  alt="Project 2 Image 1">
+                    <img src="./Képek/Képek/Balatonfűzfő/Orvosi rendelő/IMG_20240328_154759.jpg" class="gallery-image" alt="Project 2 Image 2">
+                    <img src="./Képek/Képek/Balatonfűzfő/Orvosi rendelő/IMG_20240618_091727.jpg" class="gallery-image" alt="Project 2 Image 3">
+                    <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                    <div class="carousel-control next-image"><span>&#10095;</span></div>
+                  </div>
+                </div>
+                  <div class="details-text">
+                    <h5>Orvosi rendelő felújítása</h5>
+                    <p>	A 40 éves, elavult rendelő felújítása, komplett energetika, informatika, külső terep átépítése a modern igényeknek megfelelően</p>
+                    <p>Dátum: 2024.01-06.</p>
+                    <p>Helyszín: Balatonfűzfő, gyártelepi orvosi rendelő felújítása</p>
+                    <p>Bekerülési költség: 112MFt + ÁFA</p>
+                    </div>
+                </div>
+            </div>
+        
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Ajka Szakképzési Centrum/Ez lett.jpg" class="card-img-top" alt="Ajka">
+            <div class="card-body">
+              <h5 class="card-title">Ajka Szakképzési Centrum</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details2">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Balatonfűzfő/Orvosi rendelő/Ez lett.jpg" class="card-img-top" alt="Balatonfűzfő">
+            <div class="card-body">
+              <h5 class="card-title">Balatonfűzfő - Orvosi Rendelő</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details3">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- További kártyák -->
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Balatonfűzfő/Utcák/Ez lett 3.jpg"class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Balatonfűzfő - Utcák</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details4">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details4">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/Ez lett.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/Ez volt.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/Ez volt 2.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/Ez volt 3.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240201_102424.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240201_102557.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240206_115002.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240207_071414.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240209_092731.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240319_091002.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240320_115655.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240326_160436.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240326_160533.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240326_160724.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240328_154521.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240328_154527.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240328_154601.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240328_160037.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240328_160132.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240328_160618.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240328_161701.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240417_095232.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240417_095919.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240417_102510.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240417_102558.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/IMG_20240717_100725.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/Ez lett 2.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Balatonfűzfő/Utcák/Ez lett 3.jpg" class="gallery-image" alt="Project Image 4">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Önkormányzati utak felújítása</h5>
+              <p>	Elavult, elöregedett, keskeny utak felújítása gabion támfal építéssel, járdák átépítése, központi parkoló teljes (burkolat és forgalomtechnika) felújítása</p>
+              <p>Dátum: 2024.02-07.</p>
+              <p>Helyszín: Balatonfűzfő 6 utca, településközponti parkoló</p>
+              <p>Bekerülési költség: 103MFt + ÁFA</p>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details5">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Balatonkenese/Ez lett.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Balatonkenese/Ez volt.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Balatonkenese/Épül 1.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonkenese/Épül 2.jpg" class="gallery-image" alt="Project Image 3">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Kikötő utca felújítása</h5>
+              <p>A kerékpárút építés által megrongált útburkolat felújítása burkolat lemarással és új aszfalt kopóréteg beépítéssel</p>
+              <p>Dátum: 2024. 05.</p>
+              <p>Helyszín: Balatonkenese, Kikötő utca a strand és Yacht kikötő között</p>
+              <p>Bekerülési költség: 13,3MFt + ÁFA</p>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details6">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Balatonkenese, Bajcsy-Zs. utca/1.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Balatonkenese, Bajcsy-Zs. utca/2.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Balatonkenese, Bajcsy-Zs. utca/3.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonkenese, Bajcsy-Zs. utca/4.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonkenese, Bajcsy-Zs. utca/5.jpg" class="gallery-image" alt="Project Image 3">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Bajcsy-Zs. utca felújítása</h5>
+              <p>A szűk, többszöri közműépítést követően felszabdalt útpálya szélesítése, új aszfalt kopóréteg beépítése, csapadékvíz elvezetés kialakítása</p>
+              <p>Dátum: 2024.10-12.</p>
+              <p>Helyszín: Balatonkenese, Bajcsy-Zs. utca</p>
+              <p>Bekerülési költség: 11,2MFt + ÁFA</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Balatonkenese/Ez lett.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Balatonkenese</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details5">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Balatonakali/Ez lett.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Balatonkenese - Bajcsy-Zsilinszky utca</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details6">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Folytatás a maradék kártyákkal -->
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Balatonszepezd/7.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Balatonszepezd</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details7">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details7">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Balatonszepezd/1.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Balatonszepezd/2.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Balatonszepezd/3.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonszepezd/4.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonszepezd/5.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonszepezd/6.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonszepezd/7.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Balatonszepezd/8.jpg" class="gallery-image" alt="Project Image 3">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Árpád utca felújítása</h5>
+              <p>	A szűk, többszöri közműépítést követően felszabdalt útpálya szélesítése, új aszfalt kopóréteg beépítése, csapadékvíz elvezetés kialakítása</p>
+              <p>Dátum: 2024.03-04.</p>
+              <p>Helyszín: Balatonszepezd, Árpád utca</p>
+              <p>Bekerülési költség: 24,2MFt + ÁFA</p>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details8">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Balatonudvari/IMG_20240610_121623.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Balatonudvari/IMG_20240610_121628.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Balatonudvari/IMG_20240612_081006.jpg" class="gallery-image" alt="Project Image 3">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Strand bevezető út felújítása</h5>
+              <p>A poros, aszfaltfoltos, kátyús útszakasz új aszfalt kopóréteggel történő átépítése</p>
+              <p>Dátum: 2024.05.</p>
+              <p>Helyszín: Balatonudvari, strandi parkoló</p>
+              <p>Bekerülési költség: 6,1MFt + ÁFA</p>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details9">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Bánd, Mártonhegyi utca/1.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Bánd, Mártonhegyi utca/2.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Bánd, Mártonhegyi utca/3.jpg" class="gallery-image" alt="Project Image 3">
+                <img src="./Képek/Képek/Bánd, Mártonhegyi utca/4.jpg" class="gallery-image" alt="Project Image 4">
+                <img src="./Képek/Képek/Bánd, Mártonhegyi utca/5.jpg" class="gallery-image" alt="Project Image 5">
+                <img src="./Képek/Képek/Bánd, Mártonhegyi utca/6.jpg" class="gallery-image" alt="Project Image 6">
+                <img src="./Képek/Képek/Bánd, Mártonhegyi utca/7.jpg" class="gallery-image" alt="Project Image 7">
+                <img src="./Képek/Képek/Bánd, Mártonhegyi utca/8.jpg" class="gallery-image" alt="Project Image 8">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Mártonhegyi utca felújítása</h5>
+              <p>MFP programban a keskeny utca bővítése és aszfaltburkolatú felújítása</p>
+              <p>Dátum: 2024.10.</p>
+              <p>Helyszín: Bánd, Mértonhegyi utca</p>
+              <p>Bekerülési költség: 13,7MFt + ÁFA</p>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Balatonudvari/IMG_20240610_121628.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Balatonudvari</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details8">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Bánd, Mártonhegyi utca/5.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Bánd - Mártonhegyi út</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details9">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Szigliget/IMG_20240530_144219.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Szigliget</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details10">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details10">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Szigliget/IMG_20240422_151335.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Szigliget/IMG_20240423_084757.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Szigliget/IMG_20240507_113337.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Szigliget/IMG_20240516_081106.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Szigliget/IMG_20240528_114731.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Szigliget/IMG_20240529_081404.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Szigliget/IMG_20240530_144219.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Szigliget/IMG_20240606_121425.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Szigliget/IMG_20240611_102331.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Szigliget/IMG_20240611_102454.jpg" class="gallery-image" alt="Project Image 2">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Iharos utca felújítása</h5>
+              <p>A meglévő 4,5-5,0m széles út bővítése 5,5m szélesre, mellette aszfaltos burkolt padka kialakítása, nyílt földárok burkolása</p>
+              <p>Dátum: 2024.04-05.</p>
+              <p>Helyszín: Szigliget, Iharos utca</p>
+              <p>Bekerülési költség: 43,3MFt + ÁFA</p>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details11">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/1.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/2.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/3.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/4.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/5.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/6.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/7.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/8.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/9.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/10.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/11.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/12.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Veszprém, Boksa tér/13.jpg" class="gallery-image" alt="Project Image 2">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Lakóparki úthálózat kiépítése</h5>
+              <p>A többlakásos társasház megközelítését szolgáló utak, parkolók kiépítése, zöldfelület rendezése, támfalak építése</p>
+              <p>Dátum: 2024.10-12.</p>
+              <p>Helyszín: Veszprém, Boksa tér</p>
+              <p>Bekerülési költség: 14,6MFt + ÁFA</p>
+            </div>
+          </div>
+          <div class="details-card collapse" id="details12">
+            <div class="details-content">
+              <div class="image-container">
+                <img src="./Képek/Képek/Zánka/1-1.jpg" class="gallery-image active" alt="Project Image 1">
+                <img src="./Képek/Képek/Zánka/1-2.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/1-3.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/1-4.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/1-5.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/1-6.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-1.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-2.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-3.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-4.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-5.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-6.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-7.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-8.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-9.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-10.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-11.jpg" class="gallery-image" alt="Project Image 2">
+                <img src="./Képek/Képek/Zánka/2-12.jpg" class="gallery-image" alt="Project Image 2">
+                <div class="carousel-control prev-image"><span>&#10094;</span></div>
+                <div class="carousel-control next-image"><span>&#10095;</span></div>
+              </div>
+            </div>
+            <div class="details-text">
+              <h5>Parti sétány kialakítása</h5>
+              <p>A földes, sáros, iszapos területen a partra vezető sétány kialakítása, mocsári ciprusok védelmét ellátó fahidak közbeiktatásával, pihenőpadokkal, közvilágítással</p>
+              <p>Dátum: 2024.02-05.</p>
+              <p>Helyszín: Zánka, Csemetekert utca végén a Balaton parton</p>
+              <p>Bekerülési költség: 58,5MFt + ÁFA</p>
+            </div>
+          </div>
+          
+        </div>
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Veszprém, Boksa tér/13.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Veszprém - Boksa tér</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details11">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 card-container">
+          <div class="card">
+            <img src="./Képek/Képek/Zánka/2-10.jpg" class="card-img-top" alt="Balatonakali">
+            <div class="card-body">
+              <h5 class="card-title">Zánka</h5>
+              <button class="btn btn-primary toggle-details" type="button" data-target="#details12">
+                Részletek megtekintése
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Details Card -->
+       <!-- Balatonakali -->
+      
+      <!-- Ajka -->
+      
+      <!-- Balatonfűzfő-->
+      
+    </div>
+      </div>
+    </div>
+  </section>
+<section class="footer">
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-body-secondary">© 2010 - 2025 Veszprémi Útépítő Kft.</p>
+      
+          <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="./rolunk.html" class="nav-link px-2 text-body-secondary">Rólunk</a></li>
+            <li class="nav-item"><a href="./munkaink.html" class="nav-link px-2 text-body-secondary">Munkáink</a></li>
+            <li class="nav-item"><a href="./csapatunk.html" class="nav-link px-2 text-body-secondary">Csapatunk</a></li>
+            <li class="nav-item"><a href="./impresszum.html" class="nav-link px-2 text-body-secondary">Impresszum</a></li>
+            <li class="nav-item"><a href="./kapcsolat.html" class="nav-link px-2 text-body-secondary">Kapcsolat</a></li>
+          </ul>
+        </footer>
+      </div>
+</section>
+<!-- js -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script src="./csapatunk.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const openMenuButton = document.getElementById('openMenu');
+      const closeMenuButton = document.getElementById('closeMenu');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      // Menü megnyitása
+      openMenuButton.addEventListener('click', function () {
+          mobileMenu.classList.add('active');
+      });
+
+      // Menü bezárása
+      closeMenuButton.addEventListener('click', function () {
+          mobileMenu.classList.remove('active');
+      });
+  });
+</script>
+</body>
+
+</html>
