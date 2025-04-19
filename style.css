@@ -249,15 +249,13 @@ body {
 .details-card .details-content {
   display: flex;
   flex-direction: row; /* A kép és a szöveg egymás mellett legyen */
-  height: 627px; /* Fix magasság */
-  width: 836px; /* Fix szélesség */
   gap: 20px;
 }
 
 .details-card .image-container {
   flex: 2; /* A kép 2/3 részt foglaljon el */
-  height: 627px; /* Fix magasság */
-  width: 836px; /* Fix szélesség */
+  height: 627px !important; /* Fix magasság */
+  width: 836px !important; /* Fix szélesség */
   overflow: hidden;
 }
 
@@ -719,6 +717,136 @@ body {
     order: 2;
     justify-content: center;
   }
+  /* Főkártya képe */
+  .card-container .card-img-top {
+    width: 100%; /* A kép teljes szélességben kitölti a kártyát */
+    height: 200px; /* Magasság a telefonos nézethez */
+    object-fit: cover; /* A kép arányosan tölti ki a területet */
+    border-radius: 8px; /* Lekerekített sarkok */
+  }
+
+  /* Detailed kártya */
+  .details-card {
+    width: 100%; /* A kártya teljes szélességben jelenjen meg */
+    margin-top: 10px; /* Távolság a főkártyától */
+    padding: 10px; /* Kisebb belső margó */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Detailed kártya tartalma */
+  .details-card .details-content {
+    display: flex;
+    flex-direction: column; /* A kép és a szöveg egymás alatt legyen */
+    align-items: stretch; /* A tartalom teljes szélességben jelenjen meg */
+    width: 100%; /* A tartalom teljes szélességben jelenjen meg */
+  }
+
+  /* Kép konténer */
+  .details-card .image-container {
+    width: 100%; /* A kép teljes szélességben kitölti a kártyát */
+    height: auto; /* Automatikus magasság */
+    margin-bottom: 10px; /* Távolság a szövegtől */
+    overflow: hidden; /* A túlcsorduló tartalom elrejtése */
+  }
+
+  .details-card .image-container img {
+    width: 100%; /* A kép szélessége kitölti a konténert */
+    height: auto; /* A kép magassága arányosan igazodik */
+    object-fit: cover; /* A kép arányosan tölti ki a rendelkezésre álló területet */
+    border-radius: 8px; /* Lekerekített sarkok */
+    margin-bottom: 10px; /* Távolság a képek között */
+  }
+
+  /* Szöveg konténer */
+  .details-card .details-text {
+    font-size: 1rem; /* Normál betűméret */
+    text-align: left; /* Balra igazított szöveg */
+    line-height: 1.6; /* Jobb olvashatóság */
+    margin-top: 10px; /* Távolság a képtől */
+    width: 100%; /* A szöveg teljes szélességben jelenjen meg */
+  }
+  #FrontPageCarousel .carousel-inner img {
+    height: auto; /* A kép magassága automatikusan igazodik */
+    max-height: 300px; /* Maximális magasság a képekhez */
+    object-fit: cover; /* A kép arányosan tölti ki a rendelkezésre álló területet */
+  }
+
+  #FrontPageCarousel .carousel-caption-static {
+    position: absolute; /* A szöveg a képen helyezkedjen el */
+    bottom: 10%; /* A képernyő aljához közelebb */
+    left: 10%; /* Kicsit beljebb igazítva */
+    right: 10%; /* Középre igazítva */
+    text-align: center; /* Szöveg középre igazítása */
+    color: white; /* Fehér szöveg */
+    padding: 10px; /* Szöveg körüli margó */
+    border-radius: 5px; /* Lekerekített sarkok */
+    font-size: 0.9rem; /* Kisebb betűméret */
+    z-index: 10; /* Biztosítjuk, hogy a szöveg a kép felett legyen */
+  }
+
+  #FrontPageCarousel .carousel-caption-static p {
+    margin-bottom: 5px; /* Távolság a szövegek között */
+  }
+
+  #FrontPageCarousel .carousel-caption-static .btn {
+    font-size: 0.8rem; /* Kisebb gombméret */
+    padding: 5px 10px; /* Kisebb gomb margók */
+  }
+  #works {
+    width: 100%; /* A szekció teljes szélességben kitölti a képernyőt */
+    margin: 0; /* Távolság eltávolítása a szekció körül */
+    padding: 0; /* Belső margók eltávolítása */
+  }
+
+  #works .container-fluid {
+    width: 100%; /* A container-fluid teljes szélességben kitölti a képernyőt */
+    padding: 0; /* Távolság eltávolítása a tartalom körül */
+  }
+
+  #works .carousel-inner {
+    width: 100%; /* A carousel teljes szélességben kitölti a képernyőt */
+  }
+  #works .carousel-item .row {
+    display: flex;
+    justify-content: center; /* Középre igazítjuk az első képet */
+  }
+
+  #works .carousel-item .col-md-4:nth-child(n+2) {
+    display: none; /* Az első képen kívül az összes többit elrejtjük */
+  }
+  #works .carousel-item img {
+  filter: brightness(70%);
+  width: 100%; /* A kép teljes szélességben jelenjen meg */
+  height: auto; /* Magasság automatikusan igazodik */
+  object-fit: cover; /* A kép arányosan tölti ki a rendelkezésre álló területet */
+}
+  #works .carousel-caption {
+    position: absolute; /* A szöveg a képen helyezkedjen el */
+    bottom: 10%; /* A kép aljához közelebb */
+    left: 50%; /* Középre igazítva vízszintesen */
+    transform: translateX(-50%); /* Pontos középre igazítás */
+    color: white; /* Fehér szöveg */
+    padding: 10px; /* Szöveg körüli margó */
+    border-radius: 5px; /* Lekerekített sarkok */
+    text-align: center; /* Szöveg középre igazítása */
+    font-size: 0.9rem; /* Kisebb betűméret telefonos nézethez */
+    z-index: 10; /* Biztosítjuk, hogy a szöveg a kép felett legyen */
+    width: 90%; /* A szöveg szélessége igazodik a képhez */
+  }
+
+  #works .carousel-caption h5 {
+    font-size: 1.2rem; /* Cím méretének csökkentése */
+    margin-bottom: 5px; /* Távolság a cím és a leírás között */
+  }
+
+  #works .carousel-caption p {
+    font-size: 0.9rem; /* Leírás méretének csökkentése */
+    margin: 0; /* Távolság eltávolítása a szöveg körül */
+  }
+  
 }
 /* Kapcsolat Section */
 .kapcsolat-section .block {
