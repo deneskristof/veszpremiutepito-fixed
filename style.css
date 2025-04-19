@@ -249,13 +249,15 @@ body {
 .details-card .details-content {
   display: flex;
   flex-direction: row; /* A kép és a szöveg egymás mellett legyen */
+  height: 627px; /* Fix magasság */
+  width: 836px; /* Fix szélesség */
   gap: 20px;
 }
 
 .details-card .image-container {
   flex: 2; /* A kép 2/3 részt foglaljon el */
   height: 627px !important; /* Fix magasság */
-  width: 836px !important; /* Fix szélesség */
+  width: 836px; /* Fix szélesség */
   overflow: hidden;
 }
 
