@@ -265,6 +265,16 @@
                 mobileMenu.classList.remove('active');
             });
         });
+        document.addEventListener('DOMContentLoaded', function () {
+            const captions = document.querySelectorAll('.carousel-caption-static');
+        
+            captions.forEach((caption, index) => {
+                setTimeout(() => {
+                    caption.style.opacity = '1';
+                    caption.style.visibility = 'visible';
+                }, index * 1500); // 1.5 másodperc késleltetés az egyes elemek között
+            });
+        });
     </script>
 </body>
 
