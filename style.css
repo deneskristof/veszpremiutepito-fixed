@@ -242,6 +242,56 @@ body {
 .text-center{
   margin-top: 50px;
 }
+/* Idézet stílus */
+.quote {
+  font-size: 1.5rem; /* Nagyobb betűméret */
+  text-align: center; /* Középre igazítás */
+  margin-top: 20px; /* Távolság a tetejétől */
+  margin-bottom: 20px; /* Távolság az aljától */
+  font-style: italic; /* Dőlt betű */
+  color: #333; /* Sötétszürke szöveg (opcionális) */
+}
+/* Eszközök carousel képek méretezése */
+#eszkozeinkCarousel .carousel-inner img {
+  width: 100%; /* A kép teljes szélességben kitölti a konténert */
+  height: 500px; /* Fix magasság a képek egységesítéséhez */
+  object-fit: contain; /* A kép arányosan tölti ki a rendelkezésre álló területet, a felesleges részek levágásra kerülnek */
+}
+
+/* Carousel konténer méretezése */
+#eszkozokCarousel {
+  max-width: 100%; /* A carousel szélessége igazodik a szülő konténerhez */
+  height: 500px; /* A carousel magassága megegyezik a képek magasságával */
+  overflow: hidden; /* A túlcsorduló tartalom elrejtése */
+}
+
+/* Nyilak színének módosítása */
+#eszkozeinkCarousel .carousel-control-prev-icon,
+#eszkozeinkCarousel .carousel-control-next-icon {
+  background-color: #0071C1; /* Nyilak színe */
+  width: 30px; /* Nyilak szélessége */
+  height: 50px; /* Nyilak magassága */
+}
+
+/* Alsó vonalak (carousel-indicators) színének módosítása */
+#eszkozeinkCarousel .carousel-indicators button {
+  background-color: #888888; /* Alapértelmezett szín */
+}
+
+#eszkozeinkCarousel .carousel-indicators .active {
+  background-color: #005b9f; /* Aktív állapot színe */
+}
+/* Carousel szövegek stílusa */
+#eszkozeinkCarousel .carousel-caption p {
+  background-color: rgba(0, 0, 0, 0.6); /* Fekete háttér 60% átlátszósággal */
+  color: white; /* Fehér szöveg */
+  font-weight: bold; /* Félkövér betűk */
+  font-size: 1.2rem; /* Kicsit nagyobb betűméret */
+  padding: 10px; /* Szöveg körüli belső margó */
+  border-radius: 5px; /* Lekerekített sarkok */
+  display: inline-block; /* A szöveg mérete igazodik a tartalomhoz */
+  text-align: center; /* Középre igazított szöveg */
+}
 
 /*Work section */
 /* Alap kártya stílus */
@@ -873,6 +923,28 @@ body {
   #works .carousel-caption p {
     font-size: 0.9rem; /* Leírás méretének csökkentése */
     margin: 0; /* Távolság eltávolítása a szöveg körül */
+  }
+  #eszkozeinkCarousel .carousel-caption {
+    position: relative; /* A szöveg a normál dokumentumfolyamban marad */
+    color: white; /* Fehér szöveg */
+    font-size: 1rem; /* Betűméret */
+    padding: 10px; /* Szöveg körüli belső margó */
+    text-align: center; /* Szöveg középre igazítása */
+    margin: 10px; /* Automatikus margó a középre igazításhoz */
+    margin-right: 30%;
+    border-radius: 5px; /* Lekerekített sarkok */
+    max-width: 100%; /* A szöveg szélessége igazodik a képhez */
+  }
+
+  #eszkozeinkCarousel .carousel-inner img {
+    width: 100%; /* A kép teljes szélességben kitölti a konténert */
+    height: 300px; /* Fix magasság a képek egységesítéséhez */
+    object-fit: cover; /* A kép arányosan tölti ki a rendelkezésre álló területet */
+  }
+
+  #eszkozeinkCarousel .carousel-caption p {
+    margin: 0; /* Távolság eltávolítása a szöveg körül */
+    font-size: 0.9rem; /* Kisebb betűméret a szövegekhez */
   }
   
 }
