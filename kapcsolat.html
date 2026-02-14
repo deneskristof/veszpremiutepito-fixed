@@ -75,22 +75,18 @@
       <div class="row">
         <div class="col-md-4 order-1 order-md-1">
           <div class="block szekhely">
-            <h2>Székhely & Telephely</h2>
-            <p class="cím">8246 Tótvázsony, 838/9 hrsz,</p>
           </div>
         </div>
         <div class="col-md-4 order-3 order-md-2 d-flex justify-content-center">
           <div class="kapcsolat" style="margin-top: 50px;">
+            <h2>Székhely & Telephely</h2>
+            <p class="cím">8246 Tótvázsony, 838/9 hrsz,</p>
             <h5>Telefon</h5><p>+36 30 981-0509</p>
             <h5>E-mail</h5><p>info@veszpremiutepito.hu</p>
             <h5>Web<br/></h5> <p>www.veszpremiutepito.hu</p>
           </div>
         </div>
         <div class="col-md-4 order-2 order-md-3 d-flex justify-content-md-end">
-          <div class="block iroda">
-            <h2>Iroda</h2>
-            <p class="címfüred">8230 Balatonfüred, Jókai Mór u. 5.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -101,8 +97,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 d-flex justify-content-center">
                 <div class="btn-group mb-3" role="group" aria-label="Location buttons">
-                    <button type="button" class="btn btn-primary" id="office-btn">Iroda: 8230 Balatonfüred, Jókai Mór u. 5.</button>
-                    <button type="button" class="btn btn-secondary" id="factory-btn">Telephely: 8246 Tótvázsony, Ipari Park 838/9 hrsz</button>
+                    <button type="button" class="btn btn-secondary" id="factory-btn">Telephely / Iroda: 8246 Tótvázsony, 838/9 hrsz (Fodor Ipari Park 13)</button>
                 </div>
             </div>
             <div class="col-md-12">
@@ -115,7 +110,7 @@
 <section class="footer">
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p class="col-md-4 mb-0 text-body-secondary">© 2010 - 2025 Veszprémi Útépítő Kft.</p>
+          <p class="col-md-4 mb-0 text-body-secondary">© 2010 - 2026 Veszprémi Útépítő Kft.</p>
       
           <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
@@ -140,35 +135,22 @@ crossorigin="anonymous"></script>
 <script>
 function initMap() {
     const locations = {
-        office: { lat: 46.95744820066877, lng: 17.8863093395954 },
-        factory: { lat: 47.014438, lng: 17.801467 }
+        factory: { lat: 47.01476910439499, lng: 17.802181884557484 }, 
     };
 
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 15,
-        center: locations.office
+        center: locations.factory
     });
 
     const marker = new google.maps.Marker({
-        position: locations.office,
+        position: locations.factory,
         map: map,
         icon: {
             url: './images/logo-vuk.png', // Path to your logo image
             scaledSize: new google.maps.Size(50, 50) // Adjust the size as needed
         },
         animation: google.maps.Animation.BOUNCE
-    });
-
-    function setActiveButton(buttonId) {
-        document.getElementById("office-btn").classList.remove("active");
-        document.getElementById("factory-btn").classList.remove("active");
-        document.getElementById(buttonId).classList.add("active");
-    }
-
-    document.getElementById("office-btn").addEventListener("click", function() {
-        map.setCenter(locations.office);
-        marker.setPosition(locations.office);
-        setActiveButton("office-btn");
     });
 
     document.getElementById("factory-btn").addEventListener("click", function() {
