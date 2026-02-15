@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const cards = document.querySelectorAll('.stab-card');
 
   cards.forEach(card => {
-    card.addEventListener('click', function() {
-        card.classList.toggle('is-flipped');
+    card.addEventListener('click', function () {
+      card.classList.toggle('is-flipped');
     });
-});
+  });
   toggleDetailsButtons.forEach(button => {
     button.addEventListener('click', function () {
       const targetId = this.dataset.target;
