@@ -1,200 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="icon" href="./images/logo-vuk.png" type="png">
-  <title>Veszprémi Útépító Kft. - VUK</title>
+  <title>VUK Krónika</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+    :root {
+      --paper: #f9f7f2;
+      --cover-color: #004d80;
+      --gold: #d4af37;
+      --accent: #0071C1;
+      --vuk-light: #00A1E1; /* A gradienthez használt világosabb kék */
+    }
+
+    body {
+      background: #1a1a1a;
+      background-image: url('./Képek/bookdesk.png');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: 'Playfair Display', serif;
+      touch-action: manipulation;
+    }
+
+    .book-container {
+      perspective: 2000px;
+      position: relative;
+      filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.8));
+    }
+
+    .is-cover {
+      background: var(--cover-color) !important;
+      color: var(--gold);
+      justify-content: center;
+      align-items: center;
+      border: 2px solid var(--gold);
+      position: relative; /* Fontos a ::before pozicionálásához */
+      overflow: hidden;   /* Hogy a gradient ne lógjon ki a borítóról */
+    }
+
+    /* --- A KÉRT SZALAG FORMA INTEGRÁLÁSA --- */
+    .is-cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 500px; 
+      height: 120px;
+      background: linear-gradient(45deg, transparent 50%, var(--vuk-light) 50%);
+      z-index: 1;
+    }
+
+    /* A tartalom a szalag felett maradjon */
+    .is-cover * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .is-cover h1 { font-family: 'Cinzel', serif; font-size: 3.5rem; margin: 0; }
+    h2 { font-family: 'Cinzel', serif; font-size: 1.4rem; color: #222; border-bottom: 1px solid var(--gold); padding-bottom: 10px; margin-bottom: 15px; text-align: center; width: 100%; }
+    p { line-height: 1.5; text-align: justify; color: #333; font-size: 0.9rem; margin-bottom: 12px; }
+    strong { color: var(--accent); }
+
+    /* FIX OLDALSZÁM POZÍCIÓ - ASZTALI ALAP */
+    .page-num { 
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+      text-align: center; 
+      font-size: 0.8rem; 
+      color: #999; 
+      pointer-events: none;
+      background: var(--paper); /* Hogy a szöveg ne látsszon alatta */
+      padding: 5px 0;
+    }
+
+    .fox-gold { width: 110px; filter: brightness(0) saturate(100%) invert(84%) sepia(21%) saturate(953%) hue-rotate(1deg) brightness(92%) contrast(89%); margin-bottom: 15px; }
+    
+    .nav-buttons { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 15px; }
+    .nav-btn {
+      display: block; text-decoration: none; color: var(--gold) !important;
+      background: rgba(0, 77, 128, 0.05); border: 1px solid var(--gold);
+      padding: 12px; text-align: center; font-family: 'Cinzel', serif;
+      font-weight: bold; font-size: 0.95rem; border-radius: 6px; transition: all 0.3s ease;
+    }
+
+    .nav-hint { display: none; }
+
+    /* --- ASZTALI NÉZET --- */
+    @media (min-width: 1100px) {
+      .book-container { width: 550px; height: 750px; transition: transform 1s ease; }
+      .book-container.is-open { transform: translateX(275px); }
+      .book { width: 100%; height: 100%; transform-style: preserve-3d; }
+      .page-wrapper { position: absolute; width: 100%; height: 100%; transform-origin: left center; transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1); transform-style: preserve-3d; cursor: pointer; }
+      .page-wrapper.flipped { transform: rotateY(-180deg); }
+      .page-side {
+        position: absolute; width: 100%; height: 100%; backface-visibility: hidden; box-sizing: border-box;
+        padding: 40px 50px 60px 50px;
+        display: flex; flex-direction: column; background: var(--paper);
+        background-image: url('https://www.transparenttextures.com/patterns/natural-paper-puzzled.png');
+        border-radius: 0 10px 10px 0; box-shadow: inset 20px 0 30px rgba(0, 0, 0, 0.05);
+        overflow-y: auto;
+      }
+      .page-side.back { transform: rotateY(180deg); border-radius: 10px 0 0 10px; }
+    }
+
+    /* --- MOBIL NÉZET --- */
+    @media (max-width: 1099px) {
+      .book-container { width: 88vw; height: 75vh; max-width: 400px; }
+      .page-side {
+        position: absolute; width: 100%; height: 100%; box-sizing: border-box; 
+        padding: 25px 22px 60px 22px; 
+        border-radius: 12px;
+        background: var(--paper); display: none; flex-direction: column; box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        overflow-y: auto; -webkit-overflow-scrolling: touch;
+      }
+      .page-side.active-mob { display: flex; opacity: 1; z-index: 100; pointer-events: auto; }
+      
+      /* MOBIL FIXÁLT OLDALSZÁM JAVÍTÁS */
+      .page-side.active-mob .page-num {
+        position: sticky; /* A görgethető terület aljához ragad */
+        bottom: -60px; /* Kivisszük a görgetési sáv aljára */
+        margin-top: auto;
+        padding: 20px 0;
+        background: var(--paper);
+        width: 100%;
+        left: 0;
+      }
+
+      .is-cover h1 { font-size: 2.2rem; }
+      .nav-hint { 
+        display: block; color: white; margin-top: 15px; font-size: 0.8rem; opacity: 0.5; 
+        text-align: center; position: fixed; bottom: 15px; width: 100%; 
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <section id="navigation" class="gradient-background">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
-      <div class="container-fluid">
-        <a class="navbar-brand col-lg-3 me-0 nav-link d-flex align-items-center" aria-current="page"
-          href="./index.html">
-          <img class="fox" src="./images/logo-vuk.png" height="70">
-          <div class="ms-2">
-            <span>VUK<br /></span>
-            VESZPRÉMI ÚTÉPÍTŐ KFT.
-          </div>
-        </a>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav d-none d-lg-flex">
-            <li class="nav-item">
-              <a class="nav-link active" href="./rolunk.html"><span class="meret">Rólunk</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./munkaink.html"><span class="meret">Munkáink</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./csapatunk.html"><span class="meret">Csapatunk</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./kapcsolat.html"><span class="meret">Kapcsolat</span></a>
-            </li>
-          </ul>
-          <ul class="navbar-nav d-lg-none">
-            <li class="nav-item">
-              <a class="nav-link" href="./rolunk.html">Rólunk</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./munkaink.html">Munkáink</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./csapatunk.html">Csapatunk</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./kapcsolat.html">Kapcsolat</a>
-            </li>
-          </ul>
+
+  <div class="book-container" id="book-container">
+    <div class="book">
+
+      <div class="page-wrapper" data-index="0">
+        <div class="page-side is-cover front">
+          <img src="./images/logo-vuk.png" class="fox-gold">
+          <h1>VUK</h1>
+          <p style="color: var(--gold); font-family: 'Cinzel'; letter-spacing: 5px; text-align: center;">Vállalati Krónika</p>
         </div>
-        <button id="openMenu" class="navbar-toggler d-lg-none" type="button" aria-label="Toggle navigation">
-          ☰
-        </button>
+        <div class="page-side back">
+          <h2>A kezdetek</h2>
+          <p>A <strong>VESZPRÉMI ÚTÉPÍTŐ Kft</strong> 2010. augusztusában alakult. Az akkori tulajdonosok elképzelése az volt, hogy ez a cég lehet az akkori cégcsoport biztos háttere, ide lenne felépítve a <strong>bázis</strong>, minden használati és munkaeszköz, ingóságok, értékek ide kerültek volna csoportosításra, biztos hátteret adva a kivitelezői tevékenységet végző cégünknek. Sajnos a kezdeti lendület, optimista elképzelések elhalkultak, alábbhagytak, így ennek a kis vállalatnak csendes szerep jutott hosszú éveken keresztül a cégcsoporton belül. Minden évben csak a második vonalból, változó nagyságú feladatok kerültek a cég munkái közé......</p>
+          <div class="page-num">1. oldal</div>
+        </div>
       </div>
-      <div id="mobileMenu" class="mobile-menu">
-        <button id="closeMenu" class="close-menu">✖</button>
-        <ul class="menu-list">
-          <li><a href="./rolunk.html">Rólunk</a></li>
-          <li><a href="./munkaink.html">Munkáink</a></li>
-          <li><a href="./csapatunk.html">Csapatunk</a></li>
-          <li><a href="./kapcsolat.html">Kapcsolat</a></li>
-          <li><a href="./impresszum.html">Impresszum</a></li>
-        </ul>
+
+      <div class="page-wrapper" data-index="1">
+        <div class="page-side front">
+          <h2>Új Fejezet</h2>
+          <p>........majd a tulajdonosi háttér megváltozásával a <strong>VESZPRÉMI ÚTÉPÍTŐ Kft</strong> 2022 tavaszától, támaszkodva az addigi kisebb referenciákra, elindult az <strong>útépítési piacon</strong> és az új tulajdonos, kollégák ismeretségi körét, kapcsolatait pozitívan használva egyre több helyen, egyre komolyabb megrendeléseket szerezve, egyre stabilabb lábakon állva erősödött az útépítési piacon. Az útépítés mellett mélyépítési tevékenységeket is végzünk, mint csapadékvíz elvezető rendszerek építése, rekonstrukciója, ipari létesítmények, komplex beruházások külső feladataihoz tartozó közműépítéseket is biztonsággal tudjuk elvégezni. 2023 végétől cégünk az adódó lehetőségeket kihasználva a magasépítési piacon is sikerrel szerepelt pályázatokon, így bővíteni tudjuk lehetőségeinket.</p>
+          <div class="page-num">2. oldal</div>
+        </div>
+        <div class="page-side back">
+          <h2>Bővülés és Hitvallás</h2>
+          <p>Hibázunk mi is, emberek vagyunk, de a hibáinkból mi is tanulunk és ha azoknak visszahatása van a munkáinkra, akkor azokat korrigáljuk, soha nem hagyunk magunk mögött rossz munkát, keserű megrendelőt. Talán ez is közrejátszik abban, hogy nem csökken megrendelőink száma, hanem folyamatosan egyre gyarapszik, új és újabb partnereink mosolyognak az elvégzett munkáink után megelégedve, keresve az új, közös feladatokat. Cégünket az elmúlt pár év alatt megismerték mind megrendelőink, mind beszállítóink, partnereink.</p>
+          <div class="page-num">3. oldal</div>
+        </div>
       </div>
-    </nav>
-  </section>
-  <section class="about">
-    <div class="container rolunk">
-      <h1>Rólunk</h1>
 
-      <p>A <span style="color:#00A1E1;">VESZPRÉMI ÚTÉPÍTŐ Kft</span> <strong>2010. augusztusában</strong> alakult. Az
-        akkori tulajdonosok elképzelése az volt, hogy ez a cég lehet az akkori cégcsoport biztos háttere, ide lenne
-        felépítve a <strong>bázis</strong>, minden használati és <strong>munkaeszköz</strong>, ingóságok, értékek ide
-        kerültek volna csoportosításra, biztos hátteret adva a <strong>kivitelezői tevékenységet</strong> végző
-        cégünknek. Sajnos a kezdeti lendület, optimista elképzelések elhalkultak, alábbhagytak, így ennek a kis
-        vállalatnak csendes szerep jutott hosszú éveken keresztül a cégcsoporton belül. Minden évben csak a második
-        vonalból, változó nagyságú feladatok kerültek a cég munkái közé......</p>
+      <div class="page-wrapper" data-index="2">
+        <div class="page-side front">
+          <h2>A "Kis Róka"</h2>
+          <p>A cég nevéből asszociálva alakult ki becenevünk, Veszprémi Útépítő Kft-ből lettünk <strong>VUK</strong>. Mivel kicsiként kezdtünk és nem szeretnénk feledni a múltunkat, így logónkba becsempésztük a „kis rókát” is. Biztosan lesznek olyan partnereink, akik majd hosszú évek után is emlékeznek a kezdetekre, azoknak mosolyogva jut eszébe a „kis róka”. Mi büszkék vagyunk múltunkra és nagy kedvvel vetjük bele magunkat a jövő kihívásaiba.</p>
+          <div class="page-num">4. oldal</div>
+        </div>
+        <div class="page-side back">
+          <h2>Gépparkunk</h2>
+          <p>Terveink vannak, mert tervek, elképzelések nélkül nincs jövő. A tavaly terveit ma valósítjuk meg és a jövőre vonatkozóan is elképzeljük és teszünk érte. 2022-ben 1 forgókotróval, úthengerekkel rendelkeztünk, a brigádjaink minden kéziszerszámmal, kisgéppel fel voltak szerelve. Ami hiányzott a komplex útépítéshez, mint például aszfaltfiniser vagy nagyobb méretű úthenger, azokat hosszú távú bérleti szerződésekkel oldottuk meg és sokoldalú szakembereink tapasztalatával minden feladatrészét meg tudtuk oldani az útépítési munkáknak. Még ezen évben beruháztunk egy vadonatúj forgókotróra, amit azóta is folyamatosan munkában tartunk másik gépünkkel együtt. A kisgépeink esetében eljutottunk lassan arra a szintre, hogy van tartalék gépünk minden eszközre, nem okoz nehézséget, ha esetleg meghibásodik valamely gépünk.</p>
+          <div class="page-num">5. oldal</div>
+        </div>
+      </div>
 
-      <p>........majd a tulajdonosi háttér megváltozásával a <span style="color:#00A1E1;">VESZPRÉMI ÚTÉPÍTŐ Kft</span>
-        <strong>2022 tavaszától</strong>, támaszkodva az addigi kisebb <strong>referenciákra</strong>, elindult az
-        <strong>útépítési piacon</strong> és az új tulajdonos, kollégák ismeretségi körét, kapcsolatait pozitívan
-        használva egyre több helyen, egyre komolyabb <strong>megrendeléseket</strong> szerezve, egyre stabilabb lábakon
-        állva erősödött az útépítési piacon. Az <strong>útépítés</strong> mellett <strong>mélyépítési
-          tevékenységeket</strong> is végzünk, mint <strong>csapadékvíz elvezető rendszerek építése</strong>,
-        rekonstrukciója, <strong>ipari létesítmények</strong>, komplex beruházások külső feladataihoz tartozó
-        <strong>közműépítéseket</strong> is biztonsággal tudjuk elvégezni. <strong>2023 végétől</strong> cégünk az adódó
-        lehetőségeket kihasználva a <strong>magasépítési piacon</strong> is sikerrel szerepelt
-        <strong>pályázatokon</strong>, így bővíteni tudjuk lehetőségeinket. </p>
+      <div class="page-wrapper" data-index="3">
+        <div class="page-side front">
+          <h2>Saját Otthonunk</h2>
+          <p>2023-ban saját telephelyet vásároltunk a tótvázsonyi ipari parkban, ahol kihasználva a terület adta lehetőségeket saját csarnokot terveztettünk, ahol gépeinket tárolni, karbantartani tudjuk telente, a munkáinkhoz szükséges anyagokat tárolni tudjuk. A 2024-es évben telephelyünk elkészült, használatba vettük. A cégünk székhelyét áttettük ide. A 2025-ös év elején elkészítettük a csarnokunk előtti tér burkolását, kialakítottuk a szilárd burkolatú munkavégzés lehetőségét is a csarnoknál. Év közben elkészítettük az irodánkat, amit bútoroztunk felszereltünk és szeptember hónaptól itt végezzük a cég adminisztratív munkáit, fogadjuk vendégeinket a XXI. századnak megfelelő szinten.</p>
+          <div class="page-num">6. oldal</div>
+        </div>
+        <div class="page-side back">
+          <h2>Jövőkép</h2>
+          <p>A jövő terveiben szerepel akár az Európai Uniós források kihasználásával új célgépek beszerzése is, frissíteni gépparkunkat, bővíteni a saját csapatainkat. Valljuk, hogy jó munkát csak jó gépekkel-eszközökkel, a munkájukban kedvüket lelő kollégákkal lehet. Ehhez nem engedjük meg, hogy elavult gépeink legyen, azokat folyamatosan karbantartjuk és az amortizációs idejük lejárta előtt becseréljük újabbakra, korszerűbbekre. Próbálunk a környezetünkre is figyelni, az új lehetőségeket használva fejleszteni a jövőnket. Ennek tudatában a telephelyünk energia ellátását napelemekkel kívánjuk megoldani, a cég számára beszereztük az első elektromos gépkocsinkat. Ezt a tendenciát folytatni kívánjuk és a modern kor követelményeinek megfelelve kívánunk fejlődni, folyamatosan megújulni.</p>
+          <p>A VESZPRÉMI ÚTÉPÍTŐ Kft a fejlődés útján jár, évente emelkedik forgalmunk, folyamatosan fejlesztünk, bővülünk. Kényesen ügyelünk a pontos fizetési határidők betartására.</p>
+          <div class="page-num">7. oldal</div>
+        </div>
+      </div>
 
-      <p>Hibázunk mi is, emberek vagyunk, de a hibáinkból mi is tanulunk és ha azoknak visszahatása van a munkáinkra,
-        akkor azokat korrigáljuk, soha nem hagyunk magunk mögött rossz munkát, keserű megrendelőt. Talán ez is
-        közrejátszik abban, hogy nem csökken megrendelőink száma, hanem folyamatosan egyre gyarapszik, új és újabb
-        partnereink mosolyognak az elvégzett munkáink után megelégedve, keresve az új, közös feladatokat. Cégünket az
-        elmúlt pár év alatt megismerték mind megrendelőink, mind beszállítóink, partnereink. A cég nevéből asszociálva
-        alakult ki becenevünk, <span style="color:#00A1E1;">Veszprémi Útépítő Kft</span>-ből lettünk
-        <strong>VUK</strong>. Mivel kicsiként kezdtünk és nem szeretnénk feledni a múltunkat, így logónkba becsempésztük
-        a „<strong>kis rókát</strong>” is. Biztosan lesznek olyan partnereink, akik majd hosszú évek után is emlékeznek
-        a kezdetekre, azoknak mosolyogva jut eszébe a „kis róka”. Mi büszkék vagyunk múltunkra és nagy kedvvel vetjük
-        bele magunkat a jövő kihívásaiba. </p>
+      <div class="page-wrapper" data-index="4">
+        <div class="page-side front">
+          <img src="./images/logo-vuk.png" class="fox-gold" style="width: 80px; align-self: center;">
+          <h2>Navigáció</h2>
+          <div class="nav-buttons">
+            <a href="./index.html" class="nav-btn">Főoldal</a>
+            <a href="./munkaink.html" class="nav-btn">Munkáink</a>
+            <a href="./csapatunk.html" class="nav-btn">Csapatunk</a>
+            <a href="./kapcsolat.html" class="nav-btn">Kapcsolat</a>
+          </div>
+          <div class="page-num">Navigáció</div>
+        </div>
+        <div class="page-side back is-cover">
+          <img src="./images/logo-vuk.png" class="fox-gold">
+          <h1 style="font-size: 2rem;">VUK</h1>
+          <p style="color: var(--gold); text-align: center; padding: 0 20px; font-size: 0.9rem;">Büszkék vagyunk múltunkra és nagy kedvvel vetjük bele magunkat a jövő kihívásaiba!</p>
+        </div>
+      </div>
 
-      <p><strong>Terveink</strong> vannak, mert tervek, elképzelések nélkül nincs jövő. A tavaly terveit ma valósítjuk
-        meg és a jövőről álmodunk, elképzeljük és teszünk érte. <strong>2022-ben</strong> 1
-        <strong>forgókotróval</strong>, <strong>úthengerekkel</strong> rendelkeztünk, a brigádjaink minden
-        kéziszerszámmal, kisgéppel (<strong>aszfaltvágó, lapvibrátor, bontókalapács, aggregátor</strong>, stb) fel
-        voltak szerelve. Ami hiányzott a <strong>komplex útépítéshez</strong>, mint például
-        <strong>aszfaltfiniser</strong> vagy nagyobb méretű úthenger, azokat hosszú távú bérleti szerződésekkel oldottuk
-        meg és sokoldalú szakembereink tapasztalatával minden feladatrészét meg tudtuk oldani az útépítési munkáknak.
-        Még ezen évben beruháztunk egy <strong>vadonatúj forgókotróra</strong>, amit azóta is folyamatosan munkában
-        tartunk másik gépünkkel együtt. A kisgépeink esetében eljutottunk lassan arra a szintre, hogy van
-        <strong>tartalék gépünk</strong> minden eszközre, nem okoz nehézséget, ha esetleg meghibásodik valamely gépünk.
-      </p>
-
-      <p><strong>2023-ban</strong> saját <strong>telephelyet vásároltunk</strong> a <strong>tótvázsonyi ipari
-          parkban</strong>, ahol kihasználva a terület adta lehetőségeket saját <strong>csarnokot</strong>
-        terveztettünk, ahol gépeinket tárolni, karbantartani tudjuk telente, a munkáinkhoz szükséges anyagokat tárolni
-        tudjuk. A <strong>2024-es évben</strong> telephelyünk elkészült, használatba vettük. A cégünk <strong>székhelyét
-          áttettük</strong> ide.</p>
-
-      <p>A <strong>2025-ös év elején</strong> elkészítettük a csarnokunk előtti tér burkolását, kialakítottuk a
-        <strong>szilárd burkolatú munkavégzés</strong> lehetőségét is a csarnoknál. Év közben elkészítettük az
-        <strong>irodánkat</strong>, amit bútoroztunk felszereltünk és szeptember hónaptól itt végezzük a cég
-        <strong>adminisztratív munkáit</strong>, fogadjuk vendégeinket a <strong>XXI. századnak megfelelő
-          szinten</strong>.</p>
-
-      <p>A jövő terveiben szerepel akár az <strong>Európai Uniós források</strong> kihasználásával új <strong>célgépek
-          beszerzése</strong> is, frissíteni <strong>gépparkunkat</strong>, bővíteni a saját csapatainkat. Valljuk, hogy
-        jó munkát csak jó gépekkel-eszközökkel, a munkájukban kedvüket lelő kollégákkal lehet. Ehhez nem engedjük meg,
-        hogy elavult gépeink legyen, azokat folyamatosan karbantartjuk és az amortizációs idejük lejárta előtt
-        becseréljük újabbakra, korszerűbbekre. </p>
-
-      <p>Próbálunk a környezetünkre is figyelni, az új lehetőségeket használva fejleszteni a jövőnket. Ennek tudatában a
-        telephelyünk <strong>energia ellátását napelemekkel</strong> kívánjuk megoldani, a cég számára beszereztük az
-        első <strong>elektromos gépkocsinkat</strong>. Ezt a tendenciát folytatni kívánjuk és a modern kor
-        követelményeinek megfelelve kívánunk fejlődni, folyamatosan megújulni.</p>
-
-      <p>A <span style="color:#00A1E1;">VESZPRÉMI ÚTÉPÍTŐ Kft</span> a <strong>fejlődés útján jár</strong>, évente
-        emelkedik <strong>forgalmunk</strong>, folyamatosan fejlesztünk, bővülünk, mindezt köszönhetjük a nagyvállalati
-        múltunkban megtanultaknak. Az elsajátított tudásunkat kamatoztatva, a <strong>pénzügyi fegyelmet</strong> magunk
-        előtt tartva, jó partnerei kívánunk lenni mind megrendelőinknek, mind beszállítóinknak. Kényesen ügyelünk a
-        <strong>pontos fizetési határidők</strong> betartására, ami cégünk <strong>megbízhatóságát</strong> is jelzi.
-      </p>
-
-      <p class="quote"><em>„Büszkék vagyunk múltunkra és nagy kedvvel vetjük bele magunkat a jövő kihívásaiba!”</em></p>
     </div>
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <section class="footer">
-    <div class="container">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-body-secondary">© 2010 - 2026 Veszprémi Útépítő Kft.</p>
+  </div>
 
-        <a href="/"
-          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <svg class="bi me-2" width="40" height="32">
-            <use xlink:href="#bootstrap"></use>
-          </svg>
-        </a>
+  <div class="nav-hint">Bal oldal: Vissza | Jobb oldal: Előre</div>
 
-        <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="./rolunk.html" class="nav-link px-2 text-body-secondary">Rólunk</a></li>
-          <li class="nav-item"><a href="./munkaink.html" class="nav-link px-2 text-body-secondary">Munkáink</a></li>
-          <li class="nav-item"><a href="./csapatunk.html" class="nav-link px-2 text-body-secondary">Csapatunk</a></li>
-          <li class="nav-item"><a href="./impresszum.html" class="nav-link px-2 text-body-secondary">Impresszum</a></li>
-          <li class="nav-item"><a href="./kapcsolat.html" class="nav-link px-2 text-body-secondary">Kapcsolat</a></li>
-        </ul>
-      </footer>
-    </div>
-  </section>
-  <!-- js -->
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const openMenuButton = document.getElementById('openMenu');
-      const closeMenuButton = document.getElementById('closeMenu');
-      const mobileMenu = document.getElementById('mobileMenu');
+    const wrappers = document.querySelectorAll('.page-wrapper');
+    const allSides = document.querySelectorAll('.page-side');
+    const container = document.getElementById('book-container');
+    let mobCurrentIndex = 0;
 
-      // Menü megnyitása
-      openMenuButton.addEventListener('click', function () {
-        mobileMenu.classList.add('active');
-      });
+    function isMobile() {
+      return window.innerWidth < 1100;
+    }
 
-      // Menü bezárása
-      closeMenuButton.addEventListener('click', function () {
-        mobileMenu.classList.remove('active');
+    function init() {
+      if (!isMobile()) {
+        wrappers.forEach((wrapper, i) => {
+          wrapper.style.zIndex = wrappers.length - i;
+        });
+        allSides.forEach(s => s.style.display = '');
+      } else {
+        updateMobilePages();
+      }
+    }
+
+    function updateMobilePages() {
+      allSides.forEach((side, index) => {
+        side.classList.remove('active-mob');
+        side.style.display = 'none';
+
+        if (index === mobCurrentIndex) {
+          side.style.display = 'flex';
+          setTimeout(() => side.classList.add('active-mob'), 10);
+        }
       });
+    }
+
+    container.addEventListener('click', (e) => {
+      const rect = container.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const isRightSide = x > rect.width / 2;
+
+      if (!isMobile()) {
+        if (isRightSide) {
+          const toFlip = Array.from(wrappers).find(w => !w.classList.contains('flipped'));
+          if (toFlip) {
+            if (toFlip.dataset.index === "0") container.classList.add('is-open');
+            toFlip.classList.add('flipped');
+            setTimeout(() => { toFlip.style.zIndex = toFlip.dataset.index; }, 600);
+          }
+        } else {
+          const flipped = Array.from(wrappers).reverse().find(w => w.classList.contains('flipped'));
+          if (flipped) {
+            if (flipped.dataset.index === "0") container.classList.remove('is-open');
+            flipped.classList.remove('flipped');
+            wrappers.forEach((w, i) => {
+              if (!w.classList.contains('flipped')) w.style.zIndex = wrappers.length - i;
+            });
+          }
+        }
+      } else {
+        if (isRightSide) {
+          if (mobCurrentIndex < allSides.length - 1) mobCurrentIndex++;
+        } else {
+          if (mobCurrentIndex > 0) mobCurrentIndex--;
+        }
+        updateMobilePages();
+      }
     });
-  </script>
-</body>
 
+    window.addEventListener('resize', init);
+    init();
+  </script>
+
+</body>
 </html>
